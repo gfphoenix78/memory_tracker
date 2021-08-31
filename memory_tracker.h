@@ -1,3 +1,6 @@
+#ifndef _MEMORY_TRACKER_H_
+#define _MEMORY_TRACKER_H_
+
 #ifdef USE_MEMORY_TRACKER
 #include <stddef.h>
 
@@ -7,7 +10,7 @@ extern void memory_track_realloc(void *ctx, void *old_ptr, void *new_ptr, size_t
 extern void memory_track_free(void *ctx, void *p, const char *filename, int lineno);
 extern void memory_track_reset(void *ctx, const char *filename, int lineno);
 extern void memory_track_destroy(void *ctx, const char *filename, int lineno);
-
+extern void memory_track_stats(void *ctx);
 
 #define MEMORY_POOL_TRACK_ALLOC(__alloc_func, ctx, size, ...) ({ \
       void *p = (__alloc_func)((ctx), (size), ## __VA_ARGS__); \
@@ -89,3 +92,4 @@ extern void memory_track_destroy(void *ctx, const char *filename, int lineno);
 
 #endif
 
+#endif /* _MEMORY_TRACKER_H_ */

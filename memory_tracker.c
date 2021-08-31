@@ -25,4 +25,8 @@ void memory_track_destroy(void *ctx, const char *filename, int lineno)
 {
 }
 
+void memory_track_stats(void *ctx)
+{
+}
+
 #endif
